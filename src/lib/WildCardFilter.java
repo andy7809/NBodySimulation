@@ -19,9 +19,19 @@ public class WildCardFilter implements FileFilter {
 	
 	@Override
 	public boolean accept(File pathname) {
-		if(pathname.getName().contains(matchPattern)) {
-			return true;
+		String str = pathname.getName();
+		if(!str.contains(".")) {
+			return false;
 		}
-		return false;
+		else {
+			String[] splitStr = str.split(".");
+			String extension = splitStr[splitStr.length - 1];
+			if(extension.equals(matchPattern)) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
 	}
 }

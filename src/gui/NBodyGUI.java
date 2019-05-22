@@ -183,8 +183,9 @@ public class NBodyGUI extends Application {
 	 */
 	private static File[] getAllSims(String filePath) {
 		File dir = new File(filePath);
-		//This filter will only accept files that contain ".txt"
-		FileFilter txtFilter = new WildCardFilter(".txt");
+		//This filter will only accept files that contain the extension "txt"
+		String extensionToFind = "txt";
+		FileFilter txtFilter = new WildCardFilter(extensionToFind);
 		File[] fileList = dir.listFiles(txtFilter);
 		return fileList;
 	}
